@@ -256,10 +256,10 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const cvLink = 'fileCUsersHPDownloadsSAMIS20C (1).pdf';
+        const cvLink = My resume.pdf.pdf';
         const a = document.createElement('a');
         a.href = cvLink;
-        a.download = 'fileCUsersHPDownloadsSAMIS20C (1).pdf';
+        a.download = My resume.pdf.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
