@@ -1,198 +1,79 @@
 /* ===== LOADER ===== */
-const hideLoader = () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 1400);
-    }
-};
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 1000);
+});
 
-window.addEventListener('load', hideLoader);
-document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 2000));
-
-/* ===== PARTICLES BACKGROUND ===== */
+/* ===== PARTICLES ===== */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
+let particles = [];
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.8 + 0.4;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.45 + 0.08;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
     }
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
     }
     draw() {
+        ctx.fillStyle = 'rgba(108, 99, 255, 0.3)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(108, 99, 255, ${this.opacity})`;
         ctx.fill();
     }
 }
 
-const pts = [];
-const count = Math.min(70, Math.floor(window.innerWidth / 20));
-for (let i = 0; i < count; i++) pts.push(new Particle());
-
-function drawLines() {
-    for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-            const dx = pts[i].x - pts[j].x;
-            const dy = pts[i].y - pts[j].y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            if (d < 130) {
-                ctx.beginPath();
-                ctx.strokeStyle = `rgba(108, 99, 255, ${0.05 * (1 - d / 130)})`;
-                ctx.lineWidth = 0.5;
-                ctx.moveTo(pts[i].x, pts[i].y);
-                ctx.lineTo(pts[j].x, pts[j].y);
-                ctx.stroke();
-            }
-        }
-    }
+function init() {
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
 }
-
-function animateParticles() {
+function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pts.forEach(p => { p.update(); p.draw(); });
-    drawLines();
-    requestAnimationFrame(animateParticles);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
 }
-animateParticles();
+init(); animate();
 
-/* ===== NAVBAR & ACTIVE LINKS ===== */
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-const allSections = document.querySelectorAll('section[id]');
-
+/* ===== NAVBAR SCROLL ===== */
 window.addEventListener('scroll', () => {
-    // Sticky Navbar
+    const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
+});
 
-    // Section Highlighting
-    let cur = '';
-    allSections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 120) {
-            cur = sec.getAttribute('id');
+/* ===== STATS COUNTER ===== */
+const stats = document.querySelectorAll('.stat-num');
+stats.forEach(stat => {
+    const updateCount = () => {
+        const target = +stat.getAttribute('data-count');
+        const count = +stat.innerText;
+        if (count < target) {
+            stat.innerText = count + 1;
+            setTimeout(updateCount, 100);
+        } else {
+            stat.innerText = target;
         }
-    });
-    navLinks.forEach(l => {
-        l.classList.remove('active');
-        if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
-    });
-
-    // Back to Top Button
-    const btn = document.getElementById('backTop');
-    if (window.scrollY > 400) btn.classList.add('show');
-    else btn.classList.remove('show');
+    };
+    updateCount();
 });
 
-document.getElementById('backTop').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-/* ===== MOBILE MENU ===== */
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-/* ===== SMOOTH SCROLL ===== */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            window.scrollTo({ top: target.offsetTop - 75, behavior: 'smooth' });
-        }
-    });
-});
-
-/* ===== STATS COUNTER ANIMATION ===== */
-function animateCounters() {
-    document.querySelectorAll('.stat-num').forEach(counter => {
-        const target = parseInt(counter.dataset.count);
-        let count = 0;
-        const update = () => {
-            const speed = target / 100;
-            if (count < target) {
-                count += speed;
-                counter.innerText = Math.ceil(count);
-                setTimeout(update, 20);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        update();
-    });
-}
-
-const statsObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsEl = document.querySelector('.hero-stats');
-if (statsEl) statsObs.observe(statsEl);
-
-/* ===== CONTACT FORM HANDLING ===== */
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('cName').value;
-    
-    // Simulate Success
-    this.innerHTML = `
-        <div class="form-success show">
-            <i class="fas fa-check-circle" style="font-size: 3rem; color: #00e676;"></i>
-            <h3>Message Sent!</h3>
-            <p>Thank you, ${name}! I'll get back to you soon.</p>
-        </div>
-    `;
-});
-
-/* ===== REAL CV DOWNLOAD ===== */
-document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
+/* ===== CV DOWNLOAD ===== */
+document.querySelectorAll('[id^="downloadCV"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const a = document.createElement('a');
-        a.href = 'My resume.pdf.pdf'; // Apnar CV file er link
-        a.download = 'My resume.pdf.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        const link = document.createElement('a');
+        link.href = 'my-resume.pdf'; // Path to your PDF
+        link.download = 'Emtiaz_Sami_CV.pdf';
+        link.click();
     });
 });
