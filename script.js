@@ -256,10 +256,10 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const cvLink = 'cv.pdf';
+        const cvLink = 'fileCUsersHPDownloadsSAMIS20C (1).pdf';
         const a = document.createElement('a');
         a.href = cvLink;
-        a.download = 'Emtiaz_Sami_CV.pdf';
+        a.download = 'fileCUsersHPDownloadsSAMIS20C (1).pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
