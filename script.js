@@ -189,8 +189,8 @@ document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const a = document.createElement('a');
-        a.href = 'my-resume.pdf'; // Apnar CV file er link
-        a.download = 'MD_Emtiaz_Hossain_Sami_CV.pdf';
+        a.href = 'My resume.pdf.pdf'; // Apnar CV file er link
+        a.download = 'My resume.pdf.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
