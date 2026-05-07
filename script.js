@@ -72,7 +72,7 @@ document.querySelectorAll('[id^="downloadCV"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const link = document.createElement('a');
-        link.href = 'my-resume.pdf'; // Path to your PDF
+        link.href = 'My resume.pdf.pdf'; // Path to your PDF
         link.download = 'Emtiaz_Sami_CV.pdf';
         link.click();
     });
