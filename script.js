@@ -272,7 +272,7 @@ document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #
         const cvLink = 'my-resume.pdf';
         const a = document.createElement('a');
         a.href = cvLink;
-        a.download = 'Emtiaz_Sami_CV.pdf';
+        a.download = 'my-resume.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
