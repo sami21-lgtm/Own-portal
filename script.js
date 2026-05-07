@@ -1,24 +1,17 @@
 /* ===== LOADER ===== */
-function hideLoader() {
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) {
+const hideLoader = () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        setTimeout(() => {
             loader.classList.add('hidden');
-        }
-    }, 1400);
-}
+        }, 1400);
+    }
+};
 
 window.addEventListener('load', hideLoader);
+document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 2000));
 
-// Backup: যদি load event না আসে
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideLoader, 2000);
-});
-
-// Extra Backup: সব শেষ উপায়
-setTimeout(hideLoader, 3500);
-
-/* ===== PARTICLES ===== */
+/* ===== PARTICLES BACKGROUND ===== */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -82,18 +75,17 @@ function animateParticles() {
 }
 animateParticles();
 
-/* ===== NAVBAR ===== */
+/* ===== NAVBAR & ACTIVE LINKS ===== */
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const allSections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    // Sticky Navbar
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
 
+    // Section Highlighting
     let cur = '';
     allSections.forEach(sec => {
         if (window.scrollY >= sec.offsetTop - 120) {
@@ -105,12 +97,10 @@ window.addEventListener('scroll', () => {
         if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
     });
 
+    // Back to Top Button
     const btn = document.getElementById('backTop');
-    if (window.scrollY > 400) {
-        btn.classList.add('show');
-    } else {
-        btn.classList.remove('show');
-    }
+    if (window.scrollY > 400) btn.classList.add('show');
+    else btn.classList.remove('show');
 });
 
 document.getElementById('backTop').addEventListener('click', () => {
@@ -148,41 +138,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/* ===== SCROLL REVEAL ===== */
-function addReveals() {
-    const els = document.querySelectorAll(
-        '.about-sidebar, .about-card, .skill-category, .contact-info, .contact-form-wrap, .section-heading'
-    );
-    els.forEach(el => el.classList.add('reveal'));
-}
-addReveals();
-
-function checkReveal() {
-    document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-            el.classList.add('revealed');
-        }
-    });
-}
-
-window.addEventListener('scroll', checkReveal);
-window.addEventListener('load', () => setTimeout(checkReveal, 1500));
-
-/* ===== COUNTER ANIMATION ===== */
+/* ===== STATS COUNTER ANIMATION ===== */
 function animateCounters() {
     document.querySelectorAll('.stat-num').forEach(counter => {
         const target = parseInt(counter.dataset.count);
-        const start = performance.now();
-        const duration = 2000;
-
-        function tick(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 3);
-            counter.textContent = Math.floor(target * ease);
-            if (progress < 1) requestAnimationFrame(tick);
-            else counter.textContent = target;
-        }
-        requestAnimationFrame(tick);
+        let count = 0;
+        const update = () => {
+            const speed = target / 100;
+            if (count < target) {
+                count += speed;
+                counter.innerText = Math.ceil(count);
+                setTimeout(update, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        update();
     });
 }
 
@@ -198,81 +169,28 @@ const statsObs = new IntersectionObserver(entries => {
 const statsEl = document.querySelector('.hero-stats');
 if (statsEl) statsObs.observe(statsEl);
 
-/* ===== SKILL BARS ===== */
-function animateBars() {
-    document.querySelectorAll('.skill-bar-fill').forEach((bar, i) => {
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = bar.dataset.width + '%';
-        }, 80 + i * 60);
-    });
-}
-
-const skillObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateBars();
-            skillObs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.15 });
-
-const skillSec = document.querySelector('.skills-section');
-if (skillSec) skillObs.observe(skillSec);
-
-/* ===== CONTACT FORM ===== */
+/* ===== CONTACT FORM HANDLING ===== */
 document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
-
-    const name = document.getElementById('cName').value.trim();
-    const email = document.getElementById('cEmail').value.trim();
-    const message = document.getElementById('cMessage').value.trim();
-
-    if (!name || !email || !message) return;
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
+    const name = document.getElementById('cName').value;
+    
+    // Simulate Success
     this.innerHTML = `
         <div class="form-success show">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: #00e676;"></i>
             <h3>Message Sent!</h3>
             <p>Thank you, ${name}! I'll get back to you soon.</p>
         </div>
     `;
-
-    setTimeout(() => {
-        this.innerHTML = `
-            <div class="form-group">
-                <label>Your Name</label>
-                <input type="text" id="cName" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-                <label>Your Email</label>
-                <input type="email" id="cEmail" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea id="cMessage" rows="6" placeholder="Write your message..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full">
-                <span>Send Message</span>
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        `;
-    }, 5000);
 });
 
-/* ===== DOWNLOAD CV ===== */
+/* ===== REAL CV DOWNLOAD ===== */
 document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const cvLink = 'my-resume.pdf';
         const a = document.createElement('a');
-        a.href = cvLink;
-        a.download = 'my-resume.pdf';
+        a.href = 'my-resume.pdf'; // Apnar CV file er link
+        a.download = 'MD_Emtiaz_Hossain_Sami_CV.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
