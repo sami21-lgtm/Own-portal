@@ -256,8 +256,12 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        // তোমার CV ফাইলের নাম এখানে দাও:
-        // window.open('your-cv.pdf', '_blank');
-        alert('CV link will work once you set your CV file path!');
+        const cvLink = 'cv.pdf';
+        const a = document.createElement('a');
+        a.href = cvLink;
+        a.download = 'Emtiaz_Sami_CV.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     });
 });
