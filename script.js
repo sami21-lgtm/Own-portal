@@ -1,9 +1,22 @@
 /* ===== LOADER ===== */
-window.addEventListener('load', () => {
+function hideLoader() {
     setTimeout(() => {
-        document.getElementById('loader').classList.add('hidden');
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.classList.add('hidden');
+        }
     }, 1400);
+}
+
+window.addEventListener('load', hideLoader);
+
+// Backup: যদি load event না আসে
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoader, 2000);
 });
+
+// Extra Backup: সব শেষ উপায়
+setTimeout(hideLoader, 3500);
 
 /* ===== PARTICLES ===== */
 const canvas = document.getElementById('particles');
@@ -256,10 +269,10 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #downloadCVAbout').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const cvLink = My resume.pdf.pdf';
+        const cvLink = 'my-resume.pdf';
         const a = document.createElement('a');
         a.href = cvLink;
-        a.download = My resume.pdf.pdf';
+        a.download = 'Emtiaz_Sami_CV.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
