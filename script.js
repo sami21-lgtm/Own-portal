@@ -109,21 +109,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 🚀 নতুন সংযোজন: Hero Stats Counter Animation 🚀
+    // ৬. Hero Stats Counter Animation
     const counters = document.querySelectorAll('.stat-num');
-    const animationSpeed = 50; // অ্যানিমেশন ভেলোসিটি বা স্পিড
+    const animationSpeed = 50; 
 
     counters.forEach(counter => {
         const updateCount = () => {
             const target = parseInt(counter.getAttribute('data-count'), 10);
             const current = parseInt(counter.innerText, 10) || 0;
-
-            // ডাটা সাইজের ওপর ভিত্তি করে স্টেপ সাইজ নির্ধারণ
             const increment = Math.ceil(target / animationSpeed);
 
             if (current < target) {
                 const nextValue = current + increment;
-                // টার্গেট ক্রস করে গেলে পারফেক্ট ভ্যালু বসাবে
                 counter.innerText = nextValue > target ? target : nextValue;
                 setTimeout(updateCount, 25);
             } else {
@@ -133,4 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateCount();
     });
+
+    // ৭. Scroll Down Button Click Handler
+    const scrollBtn = document.querySelector('.scroll-down');
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', () => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
 });
