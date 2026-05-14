@@ -135,4 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initParticles();
     animateParticles();
+
+    // ==========================================================================
+    // ৬. সিভি ডাউনলোড অপশন (CV Download Handler via JS)
+    // ==========================================================================
+    const cvPath = "my-cv.pdf"; // আপনার সিভির ফাইল নেম (প্রজেক্ট ফোল্ডারে থাকতে হবে)
+    const cvDownloadName = "Emtiaz_Sami_CV.pdf"; // ডাউনলোড হওয়ার পর যে নাম দেখাবে
+
+    const handleCVDownload = (e) => {
+        e.preventDefault(); // ডিফল্ট '#' লিঙ্কের কাজ বন্ধ করবে
+        
+        // ব্যাকগ্রাউন্ডে একটি ইনভিজিবল ডাউনলোড লিঙ্ক তৈরি করার লজিক
+        const link = document.createElement('a');
+        link.href = cvPath;
+        link.download = cvDownloadName;
+        
+        document.body.appendChild(link);
+        link.click(); // অটোমেটিক ক্লিক ট্রিগার করবে
+        document.body.removeChild(link); // কাজ শেষে লিঙ্কটি রিমুভ করে দেবে
+    };
+
+    // ডেক্সটপ এবং মোবাইল—দুই বাটনেই ইভেন্ট লিসেনার কানেক্ট করা হলো
+    const navCVBtn = document.getElementById('downloadCVNav');
+    const mobileCVBtn = document.getElementById('downloadCVMobile');
+
+    if (navCVBtn) navCVBtn.addEventListener('click', handleCVDownload);
+    if (mobileCVBtn) mobileCVBtn.addEventListener('click', handleCVDownload);
 });
