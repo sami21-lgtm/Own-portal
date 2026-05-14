@@ -123,7 +123,7 @@ document.querySelectorAll('#downloadCVNav, #downloadCVMobile, #downloadCVHero, #
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         // আপনার CV ফাইলটির নাম এখানে দিন
-        const cvLink = 'my-resume.pdf'; 
+        const cvLink = 'My resume.pdf.pdf'; 
         const a = document.createElement('a');
         a.href = cvLink;
         a.download = 'Md_Emtiaz_Hossain_Sami_CV.pdf';
