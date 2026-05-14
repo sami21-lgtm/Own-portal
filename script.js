@@ -56,7 +56,7 @@ if(skillSec) obs.observe(skillSec);
 document.getElementById('downloadCVNav').addEventListener('click', (e) => {
     e.preventDefault();
     const a = document.createElement('a');
-    a.href = 'my-resume.pdf';
+    a.href = 'My resume.pdf.pdf';
     a.download = 'Sami_Resume.pdf';
     a.click();
 });
