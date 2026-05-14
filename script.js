@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     // ৬. সিভি ডাউনলোড অপশন (CV Download Handler via JS)
     // ==========================================================================
-    const cvPath = "my-cv.pdf"; // আপনার সিভির ফাইল নেম (প্রজেক্ট ফোল্ডারে থাকতে হবে)
+    const cvPath = "my-resume.pdf"; // আপনার সিভির ফাইল নেম (প্রজেক্ট ফোল্ডারে থাকতে হবে)
     const cvDownloadName = "Emtiaz_Sami_CV.pdf"; // ডাউনলোড হওয়ার পর যে নাম দেখাবে
 
     const handleCVDownload = (e) => {
