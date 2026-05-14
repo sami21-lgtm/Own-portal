@@ -55,7 +55,7 @@ document.querySelectorAll('#downloadCVNav').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const a = document.createElement('a');
-        a.href = 'my-resume.pdf'; 
+        a.href = 'My resume.pdf.pdf'; 
         a.download = 'Md_Emtiaz_Hossain_Sami_Resume.pdf';
         a.click();
     });
