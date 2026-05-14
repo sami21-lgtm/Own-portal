@@ -1,303 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emtiaz Sami | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Emtiaz Hossain Sami | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <span>Loading...</span>
-        </div>
-    </div>
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
 
-    <canvas id="particles"></canvas>
+    <canvas id="particles"></canvas>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">&lt;Sami/&gt;</a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#" class="btn-download" id="downloadCVNav">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-                <button class="menu-btn" id="menuBtn">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="https://imtiaz.swe.bd/" class="nav-logo">
+                <i class="fa-solid fa-laptop-code tech-icon"></i>
+                <span>Sami</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://imtiaz.swe.bd/resume.pdf" class="btn-download" id="downloadCVNav" target="_blank">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <button class="menu-btn" id="menuBtn">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="#" class="btn-download-mobile" id="downloadCVMobile">
-            <i class="fas fa-download"></i> Download CV
-        </a>
-    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="https://imtiaz.swe.bd/resume.pdf" class="btn-download-mobile" id="downloadCVMobile" target="_blank">
+            <i class="fas fa-download"></i> Download CV
+        </a>
+    </div>
 
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-left">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-name">Emtiaz Sami</h1>
-                <div class="hero-role">
-                    <span class="role-tag">Software Engineering Student</span>
-                    <span class="role-divider">|</span>
-                    <span class="role-tag">Full Stack Developer</span>
-                </div>
-                <p class="hero-desc">
-                    Department of Software Engineering, Daffodil International University. 
-                    Passionate about building modern, scalable web applications with clean code.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <span class="stat-num" data-count="2">0</span><span class="stat-plus">+</span>
-                        <span class="stat-text">Years Experience</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span>
-                        <span class="stat-text">Projects Done</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-num" data-count="15">0</span><span class="stat-plus">+</span>
-                        <span class="stat-text">Technologies</span>
-                    </div>
-                </div>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn-primary">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#" class="btn-outline" id="downloadCVHero">
-                        <i class="fas fa-download"></i>
-                        <span>Download CV</span>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="hero-photo-wrap">
-                    <div class="hero-photo-ring ring-1"></div>
-                    <div class="hero-photo-ring ring-2"></div>
-                    <div class="hero-photo-ring ring-3"></div>
-                    <div class="hero-photo">
-                        <img src="hero-photo.jpg.jpg" alt="Emtiaz">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-            <span>Scroll Down</span>
-        </div>
-    </section>
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-left">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Md. Emtiaz Hossain Sami</h1>
+                <div class="hero-role">
+                    <span class="role-tag">Software Engineering Student</span>
+                    <span class="role-divider">|</span>
+                    <span class="role-tag">Full Stack Developer</span>
+                </div>
+                <p class="hero-desc">
+                    Department of Software Engineering, Daffodil International University. 
+                    Passionate about building modern, scalable web applications with clean code.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-num" data-count="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Years Experience</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Projects Done</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" data-count="15">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Technologies</span>
+                    </div>
+                </div>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn-primary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://imtiaz.swe.bd/resume.pdf" class="btn-outline" id="downloadCVHero" target="_blank">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-photo-wrap">
+                    <div class="hero-photo-ring ring-1"></div>
+                    <div class="hero-photo-ring ring-2"></div>
+                    <div class="hero-photo-ring ring-3"></div>
+                    <div class="hero-photo">
+                        <img src="hero-photo.jpg" alt="Emtiaz Sami">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
 
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-heading">About <span class="text-gradient">Me</span></h2>
-            <div class="about-layout">
-                <div class="about-sidebar">
-                    <div class="about-photo-card">
-                        <div class="about-photo">
-                            <img src="about-photo.jpg.jpg" alt="Emtiaz">
-                        </div>
-                        <h3>Emtiaz Sami</h3>
-                        <p>Full Stack Developer</p>
-                        <div class="about-quick-info">
-                            <div class="quick-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <span class="quick-label">Email</span>
-                                    <span class="quick-value">sami242-35-744@diu.edu.bd</span>
-                                </div>
-                            </div>
-                            <div class="quick-item">
-                                <i class="fas fa-code"></i>
-                                <div>
-                                    <span class="quick-label">Codeforces</span>
-                                    <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank" class="quick-value" style="color: var(--accent-cyan);">@samiemtiaz008</a>
-                                </div>
-                            </div>
-                            <div class="quick-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <span class="quick-label">Location</span>
-                                    <span class="quick-value">Dhaka, BD</span>
-                                </div>
-                            </div>
-                            <div class="quick-item">
-                                <i class="fas fa-briefcase"></i>
-                                <div>
-                                    <span class="quick-label">Status</span>
-                                    <span class="quick-value status-open">Open to Work</span>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn-download-full" id="downloadCVAbout">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                    </div>
-                </div>
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-heading">About <span class="text-gradient">Me</span></h2>
+            <div class="about-layout">
+                <div class="about-sidebar">
+                    <div class="about-photo-card">
+                        <div class="about-photo">
+                            <img src="about-photo.jpg" alt="Emtiaz Sami">
+                        </div>
+                        <h3>Emtiaz Sami</h3>
+                        <p>Full Stack Developer</p>
+                        <div class="about-quick-info">
+                            <div class="quick-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="quick-label">Email</span>
+                                    <span class="quick-value">sami242-35-744@diu.edu.bd</span>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <span class="quick-label">Codeforces</span>
+                                    <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank" class="quick-value" style="color: var(--accent-cyan);">@samiemtiaz008</a>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span class="quick-label">Location</span>
+                                    <span class="quick-value">Dhaka, BD</span>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <span class="quick-label">Status</span>
+                                    <span class="quick-value status-open">Open to Work</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://imtiaz.swe.bd/resume.pdf" class="btn-download-full" id="downloadCVAbout" target="_blank">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
 
-                <div class="about-main">
-                    <div class="about-card">
-                        <h3><i class="fas fa-user"></i> About Me</h3>
-                        <p>
-                            I'm Md. Emtiaz Hossain Sami, a Software Engineering student at Daffodil International University.
-                            I specialize in competitive programming and full-stack web development.
-                        </p>
-                    </div>
+                <div class="about-main">
+                    <div class="about-card">
+                        <h3><i class="fas fa-user"></i> About Me</h3>
+                        <p>
+                            I'm Md. Emtiaz Hossain Sami, a Software Engineering student at Daffodil International University.
+                            I specialize in competitive programming and full-stack web development. I love building secure, beautiful, and fluid interfaces.
+                        </p>
+                    </div>
 
-                    <div class="about-card">
-                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <span class="timeline-date">2024 - Present</span>
-                                    <h4>B.Sc. in Software Engineering</h4>
-                                    <p>Daffodil International University</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <span class="timeline-date">2023 - 2024</span>
-                                    <h4>Higher Secondary Certificate (HSC)</h4>
-                                    <p>Dhaka City College</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <span class="timeline-date">2011 - 2021</span>
-                                    <h4>Secondary School Certificate (SSC)</h4>
-                                    <p>Dhanmondi Govt. Boys' High School</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="about-card">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2024 - Present</span>
+                                    <h4>B.Sc. in Software Engineering</h4>
+                                    <p>Daffodil International University</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2023 - 2024</span>
+                                    <h4>Higher Secondary Certificate (HSC)</h4>
+                                    <p>Dhaka City College</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2011 - 2021</span>
+                                    <h4>Secondary School Certificate (SSC)</h4>
+                                    <p>Dhanmondi Govt. Boys' High School</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <h2 class="section-heading">My <span class="text-gradient">Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Problem Solving</h3>
-                    </div>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">C++</span>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="72"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Algorithms</span>
-                            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="72"></div></div>
-                        </div>
-                        <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank" class="btn-outline" style="margin-top: 15px; width: 100%; justify-content: center; padding: 10px;">
-                            <i class="fas fa-external-link-alt"></i> Codeforces Profile
-                        </a>
-                    </div>
-                </div>
-                </div>
-        </div>
-    </section>
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2 class="section-heading">My <span class="text-gradient">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Problem Solving</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 72%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Algorithms</span>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 72%;"></div></div>
+                        </div>
+                        <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank" class="btn-outline" style="margin-top: 15px; width: 100%; justify-content: center; padding: 10px;">
+                            <i class="fas fa-external-link-alt"></i> Codeforces Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-heading">Get In <span class="text-gradient">Touch</span></h2>
-            <div class="contact-layout">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-list">
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <span>Email</span>
-                                <a href="mailto:sami242-35-744@diu.edu.bd">sami242-35-744@diu.edu.bd</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div>
-                                <span>WhatsApp</span>
-                                <a href="https://wa.me/8801958545359" target="_blank">+880 1958 545 359</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-socials">
-                        <a href="https://github.com/sami21-lgtm" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank"><i class="fas fa-code"></i></a>
-                        <a href="https://www.linkedin.com/in/emtiaz-hossain-6b4416340/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.facebook.com/emtiaz.hossain.2478" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-heading">Get In <span class="text-gradient">Touch</span></h2>
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:sami242-35-744@diu.edu.bd">sami242-35-744@diu.edu.bd</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/8801958545359" target="_blank">+880 1958 545 359</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/sami21-lgtm" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank"><i class="fas fa-code"></i></a>
+                        <a href="https://www.linkedin.com/in/emtiaz-hossain-6b4416340/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/emtiaz.hossain.2478" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
 
-                <div class="contact-form-wrap">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" id="cName" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Your Email</label>
-                            <input type="email" id="cEmail" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea id="cMessage" rows="6" placeholder="Write your message..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary btn-full">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="contact-form-wrap">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" id="cName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" id="cEmail" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="cMessage" rows="6" placeholder="Write your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <a href="#home" class="nav-logo">&lt;Sami/&gt;</a>
-                    <p>Developed by <strong>Md. Emtiaz Hossain Sami</strong></p>
-                </div>
-                <div class="footer-socials">
-                    <a href="https://github.com/sami21-lgtm" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank"><i class="fas fa-code"></i></a>
-                    <a href="https://www.linkedin.com/in/emtiaz-hossain-6b4416340/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Md. Emtiaz Hossain Sami. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="https://imtiaz.swe.bd/" class="nav-logo">
+                        <i class="fa-solid fa-laptop-code tech-icon"></i>
+                        <span>Sami</span>
+                    </a>
+                    <p>Developed by <strong>Md. Emtiaz Hossain Sami</strong></p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://github.com/sami21-lgtm" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://codeforces.com/profile/samiemtiaz008" target="_blank"><i class="fas fa-code"></i></a>
+                    <a href="https://www.linkedin.com/in/emtiaz-hossain-6b4416340/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Md. Emtiaz Hossain Sami. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <button class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-</html> eta r sathe shudhu github r link set kore dio plz
+</html>
