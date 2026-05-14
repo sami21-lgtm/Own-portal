@@ -80,7 +80,7 @@ document.querySelectorAll('[id^="downloadCV"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const link = document.createElement('a');
-        link.href = 'my-resume.pdf'; // আপনার CV ফাইলের নাম
+        link.href = 'my-resume.pdf // আপনার CV ফাইলের নাম
         link.download = 'Sami_Resume.pdf';
         link.click();
     });
