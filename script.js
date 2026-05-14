@@ -1,10 +1,10 @@
-// ১. Preloader Fade Out (DOMContentLoaded এর বাইরে, সরাসরি উইন্ডো লোডের সাথে রাখা হয়েছে)
+// ১. Preloader Fade Out (DOMContentLoaded এর বাইরে, সরাসরি উইন্ডো লোডের সাথে রাখা হয়েছে)
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
     if (loader) {
         setTimeout(() => {
             loader.classList.add("fade-out");
-            // fade-out ট্রানজিশন শেষ হলে ডিসপ্লে পুরোপুরি ব্লক করে দেওয়া ভালো
+            // fade-out ট্রানজিশন শেষ হলে ডিসপ্লে পুরোপুরি ব্লক করে দেওয়া ভালো
             setTimeout(() => {
                 loader.style.display = "none";
             }, 500); 
@@ -108,4 +108,29 @@ document.addEventListener("DOMContentLoaded", () => {
             contactForm.reset();
         });
     }
+
+    // 🚀 নতুন সংযোজন: Hero Stats Counter Animation 🚀
+    const counters = document.querySelectorAll('.stat-num');
+    const animationSpeed = 50; // অ্যানিমেশন ভেলোসিটি বা স্পিড
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = parseInt(counter.getAttribute('data-count'), 10);
+            const current = parseInt(counter.innerText, 10) || 0;
+
+            // ডাটা সাইজের ওপর ভিত্তি করে স্টেপ সাইজ নির্ধারণ
+            const increment = Math.ceil(target / animationSpeed);
+
+            if (current < target) {
+                const nextValue = current + increment;
+                // টার্গেট ক্রস করে গেলে পারফেক্ট ভ্যালু বসাবে
+                counter.innerText = nextValue > target ? target : nextValue;
+                setTimeout(updateCount, 25);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        updateCount();
+    });
 });
